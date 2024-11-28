@@ -50,8 +50,8 @@ print(statistic)
 ```shell
 
 python3 ./DeePFAS/script.py \
-    --dataset_path './randomizedsmiles.tsv' \
-    --dataset_id_path './randomizedsmiles.id' \
+    --dataset_path './smiles_dataset.tsv' \
+    --dataset_id_path './smiles_dataset.id' \
     --topk 20 \
     --data_file './example/testdata.mgf' \
     --mode inference \
