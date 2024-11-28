@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "AT-LSTM"
+version = "0.1.0"
+description = ""
+authors = ["wangheng <wangheng@cmdm.csie.ntu.edu.tw>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+chempy = "^0.8.3"
+rdkit = "^2023.9.4"
+aiofiles = "^23.2.1"
+tqdm = "^4.66.1"
+pydantic = "^2.5.3"
+fastapi = "^0.109.0"
+click = "^8.1.7"
+spectrum-utils = "^0.4.2"
+pyteomics = "^4.6.3"
+uvicorn = "^0.27.0.post1"
+python-multipart = "^0.0.6"
+lxml = "^5.1.0"
+spacy = "^3.7.4"
+torch = "^2.2.1"
+torchtext = "^0.17.1"
+pandas = "^2.2.1"
+botorch = "^0.10.0"
+smilite = "^2.3.0"
+
+[tool.poetry.group.dev.dependencies]
+wemake-python-styleguide = "^0.18.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,104 @@
+{
+    "embedding": {
+        "e_dim": 39,
+        "z_dim": 512,
+        "enc_voc_size": 39,
+        "dec_voc_size": 39
+    },
+    "encoder": {
+        "in_dim": 39,
+        "hid_dim": 512,
+        "n_layers": 3,
+        "drop_prob": 0.0,
+        "bidir": true
+    },
+    "decoder": {
+        "in_dim": 512,
+        "hid_dim": 512,
+        "n_layers": 3,
+        "drop_prob": 0
+    },
+    "hydrogen": {
+        "in_dim": 512,
+        "hid_dim": 256,
+        "out_dim": 1,
+        "n_layers": 2,
+        "dropout": 0.1,
+        "pooling": {
+            "in_dim": 1,
+            "hid_dim": 1,
+            "out_dim": 1,
+            "n_layers": 1
+        }
+    },
+    "formula": {
+        "in_dim": 512,
+        "hid_dim": 256,
+        "out_dim": 11,
+        "n_layers": 3,
+        "dropout": 0.1,
+        "pooling": {
+            "in_dim": 11,
+            "hid_dim": 11,
+            "out_dim": 11,
+            "n_layers": 1
+        }
+    },
+    "hparams": {
+        "max_len": 115,
+        "batch_size": 128,
+        "sample_size": 49279,
+        "instances_buffer_size": 512,
+        "buffer_max_batch": 1,
+        "beam_size": 4,
+        "topk": 4,
+        "train_ratio": 1.0,
+        "train_num_workers": 1,
+        "val_num_workers": 4,
+        "drop_last": true,
+        "lr": 3e-4,
+        "factor": 0.9,
+        "adam_eps": 5e-9,
+        "patience": 1,
+        "warmup": 100,
+        "min_lr": 1e-5,
+        "epoch": 10,
+        "clip": 50,
+        "weight_decay": 5e-4,
+        "regression_loss_weight": 0.01,
+        "train_step_check_result": 10,
+        "train_check_result_ratio": 100,
+        "val_step_check_result": 10,
+        "val_check_result_ratio": 2,
+        "step_evaluate": 1000,
+        "use_record_idx": true,
+        "train_steps": null,
+        "val_steps": null,
+        "ignore_vae": true,
+        "use_properties": false,
+        "use_hydrogen": false,
+        "use_formula": false
+    },
+    "path": {
+        "model_dir": "./gru_saved",
+        "save_model_path": "../gru_saved/best_model.pt",
+        "loss_dir": "../gru_result",
+        "save_loss_path": "../gru_result/train_loss.txt",
+        "save_best_pct": "../gru_saved/ae_best_pct.pkl",
+        "figure_path": "gru_figure",
+        "properties_model_path": "../gru_saved/properties_model.pt",
+        "data_path": "",
+        "data_id_path": ""
+    },
+    "optim": {
+        "kl_start": 0,
+        "kl_w_start": 0,
+        "kl_w_end": 0.05,
+        "kr_n_period": 10,
+        "lr_start": 3e-4,
+        "lr_n_restarts": 10,
+        "lr_n_mult": 1,
+        "lr_end": 3e-4,
+        "lr_n_period": 10
+    }
+}
