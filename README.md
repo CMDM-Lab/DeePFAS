@@ -1,7 +1,5 @@
 # DeePFAS: Deep Learning-Enabled Rapid Annotation of PFAS: Enhancing Non-Targeted Screening through Spectral Encoding and Latent Space Analysis
 
-## Overview
-
 This repository provides implementations and code examples for DeePFAS: Deep Learning-Enabled Rapid Annotation of PFAS: Enhancing Non-Targeted Screening through Spectral Encoding and Latent Space Analysis. DeePFAS projects raw MS/MS data into the latent space of chemical structures for PFAS identification, facilitating the inference of structurally similar compounds by comparing spectra to multiple candidate molecules within this latent chemical space.
 
 ## Quickstart
