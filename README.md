@@ -5,7 +5,7 @@ This repository provides implementations and code examples for DeePFAS: Deep Lea
 ## Quickstart
 
 
-### Option1: import M2S like python package
+### Option1: import module
 
 ```python
 
