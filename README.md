@@ -1,37 +1,36 @@
-# DeePFAS
+# DeePFAS: Deep Learning-Enabled Rapid Annotation of PFAS: Enhancing Non-Targeted Screening through Spectral Encoding and Latent Space Analysis
 
 ## Overview
 
-From spectrum predict molecular structure (SMILES)
+This repository provides implementations and code examples for DeePFAS: Deep Learning-Enabled Rapid Annotation of PFAS: Enhancing Non-Targeted Screening through Spectral Encoding and Latent Space Analysis. DeePFAS projects raw MS/MS data into the latent space of chemical structures for PFAS identification, facilitating the inference of structurally similar compounds by comparing spectra to multiple candidate molecules within this latent chemical space.
 
-## Usage
+## Quickstart
+
 
 ### Option1: import M2S like python package
-
-Examples:
 
 ```python
 
 
-from M2S.inference import inference
+from DeePFAS.inference import inference
 
-ignore_MzRange = 'not ignore' # Whether to ignore the input spectrum mz peaks range (50 ~ 1000 Da) limitation ('not ignore', 'ignore')
+ignore_MzRange = 'not ignore' # Whether to ignore the input spectrum mz peaks range (< 1000 Da) limitation ('not ignore', 'ignore')
 ignore_CE = 'not ignore' # Whether to ignore the input spectrum collision energy (10 ~ 50 eV) limitation ('not ignore', 'ignore')
 
 # Eval mode (the compounds corresponding to the spectra are known, and Canonical SMILES must be provided in the spectral files for result evaluation)
-results = inference(dataset_path='./randomizedsmiles.tsv',
-                    data_id_path='./randomizedsmiles.id',
-                    data_file='testdata.mgf',
+results = inference(dataset_path='./smiles_dataset.tsv',
+                    data_id_path='./smiles_dataset.id',
+                    data_file='./example/testdata.mgf',
                     mode='eval',
                     topk=20,
                     out_dir='./results',
                     ignore_MzRange=ignore_MzRange,
                     ignore_CE=ignore_CE)
 
-# Inference mode (unknown compounds, no need to provide Canonical SMILES)
-results = inference(dataset_path='./randomizedsmiles.tsv',
-                    data_id_path='./randomizedsmiles.id',
-                    data_file='testdata.mgf',
+# Inference mode (unknown compounds, Canonical SMILES is not necessary)
+results = inference(dataset_path='./smiles_dataset.tsv',
+                    data_id_path='./smiles_dataset.id',
+                    data_file='./examplt/testdata.mgf',
                     mode='inference',
                     topk=20,
                     out_dir='./results',
@@ -48,9 +47,7 @@ print(statistic)
 
 ```
 
-### Option2: script
-
-Examples:
+### Option2: run script
 
 ```shell
 
@@ -58,7 +55,7 @@ python3 ./M2S/script.py \
     --dataset_path './randomizedsmiles.tsv' \
     --dataset_id_path './randomizedsmiles.id' \
     --topk 20 \
-    --data_file 'testdata.mgf' \
+    --data_file './example/testdata.mgf' \
     --mode inference \
     --out_dir './results' \
     --ignore_MzRange 'not ignore' \
@@ -94,23 +91,23 @@ Title in spectra data is key of .json file.
 {
     "0": [
         {
-            "loss": -20.14383316040039,
-            "smiles": "CC(NC(=O)C(N)Cc1ccc(O)cc1)C(=O)O",
-            "mw": 252.111006992,
-            "mw_diff": 4.982934008000029
+            "loss": 11.045734405517578, 
+            "smiles": "O=S(=O)([O-])C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F",
+            "mw": 348.93979885991,
+            "mw_diff": 5.946375631272986
         },
         {
-            "loss": -20.01431655883789,
-            "smiles": "NC(Cc1ccccc1)C(=O)NC(CO)C(=O)O",
-            "mw": 252.111006992,
-            "mw_diff": 4.982934008000029
+            "loss": 9.646349906921387,
+            "smiles": "O=S(=O)(O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F",
+            "mw": 349.94707531200004,
+            "mw_diff": 6.953652083363011
         },
         {
-            "loss": -20.248918533325195,
-            "smiles": "Nc1ccc(S(=O)(=O)Nc2ccccn2)cc1",
-            "mw": 249.057197592,
-            "mw_diff": 8.036743408000035
-        }
+            "loss": 9.632779121398926,
+            "smiles": "O=C(O)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)C(F)(F)F",
+            "mw": 363.97689613200004,
+            "mw_diff": 20.98347290336301
+        },
     ]
 }
 ```
