@@ -16,8 +16,8 @@ ignore_MzRange = 'not ignore' # Whether to ignore the input spectrum mz peaks ra
 ignore_CE = 'not ignore' # Whether to ignore the input spectrum collision energy (10 ~ 50 eV) limitation ('not ignore', 'ignore')
 
 # Eval mode (the compounds corresponding to the spectra are known, and Canonical SMILES must be provided in the spectral files for result evaluation)
-results = inference(dataset_path='./smiles_dataset.tsv',
-                    data_id_path='./smiles_dataset.id',
+results = inference(dataset_path='./dataset/smiles_dataset.tsv',
+                    data_id_path='./dataset/smiles_dataset.id',
                     data_file='./example/testdata.mgf',
                     mode='eval',
                     topk=20,
@@ -26,8 +26,8 @@ results = inference(dataset_path='./smiles_dataset.tsv',
                     ignore_CE=ignore_CE)
 
 # Inference mode (unknown compounds, Canonical SMILES is not necessary)
-results = inference(dataset_path='./smiles_dataset.tsv',
-                    data_id_path='./smiles_dataset.id',
+results = inference(dataset_path='./dataset/smiles_dataset.tsv',
+                    data_id_path='./dataset/smiles_dataset.id',
                     data_file='./examplt/testdata.mgf',
                     mode='inference',
                     topk=20,
@@ -50,8 +50,8 @@ print(statistic)
 ```shell
 
 python3 ./DeePFAS/script.py \
-    --dataset_path './smiles_dataset.tsv' \
-    --dataset_id_path './smiles_dataset.id' \
+    --dataset_path './dataset/smiles_dataset.tsv' \
+    --dataset_id_path './dataset/smiles_dataset.id' \
     --topk 20 \
     --data_file './example/testdata.mgf' \
     --mode inference \
