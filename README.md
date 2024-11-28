@@ -49,7 +49,7 @@ print(statistic)
 
 ```shell
 
-python3 ./M2S/script.py \
+python3 ./DeePFAS/script.py \
     --dataset_path './randomizedsmiles.tsv' \
     --dataset_id_path './randomizedsmiles.id' \
     --topk 20 \
