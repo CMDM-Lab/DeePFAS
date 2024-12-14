@@ -28,7 +28,7 @@ results = inference(dataset_path='./DeePFAS/dataset/smiles_dataset.tsv',
 # Inference mode (unknown compounds, Canonical SMILES is not necessary)
 results = inference(dataset_path='./DeePFAS/dataset/smiles_dataset.tsv',
                     data_id_path='./DeePFAS/dataset/smiles_dataset.id',
-                    data_file='./DeePFAS/examplt/testdata.mgf',
+                    data_file='./DeePFAS/example/testdata.mgf',
                     mode='inference',
                     topk=20,
                     out_dir='./results',
