@@ -10,15 +10,15 @@ This repository provides implementations and code examples for DeePFAS: Deep Lea
 ```python
 
 
-from DeePFAS.inference import inference
+from DeePFAS.models.inference import inference
 
 ignore_MzRange = 'not ignore' # Whether to ignore the input spectrum mz peaks range (< 1000 Da) limitation ('not ignore', 'ignore')
 ignore_CE = 'not ignore' # Whether to ignore the input spectrum collision energy (10 ~ 50 eV) limitation ('not ignore', 'ignore')
 
 # Eval mode (the compounds corresponding to the spectra are known, and Canonical SMILES must be provided in the spectral files for result evaluation)
-results = inference(dataset_path='./dataset/smiles_dataset.tsv',
-                    data_id_path='./dataset/smiles_dataset.id',
-                    data_file='./example/testdata.mgf',
+results = inference(dataset_path='./DeePFAS/dataset/smiles_dataset.tsv',
+                    data_id_path='./DeePFAS/dataset/smiles_dataset.id',
+                    data_file='./DeePFAS/example/testdata.mgf',
                     mode='eval',
                     topk=20,
                     out_dir='./results',
@@ -26,9 +26,9 @@ results = inference(dataset_path='./dataset/smiles_dataset.tsv',
                     ignore_CE=ignore_CE)
 
 # Inference mode (unknown compounds, Canonical SMILES is not necessary)
-results = inference(dataset_path='./dataset/smiles_dataset.tsv',
-                    data_id_path='./dataset/smiles_dataset.id',
-                    data_file='./examplt/testdata.mgf',
+results = inference(dataset_path='./DeePFAS/dataset/smiles_dataset.tsv',
+                    data_id_path='./DeePFAS/dataset/smiles_dataset.id',
+                    data_file='./DeePFAS/examplt/testdata.mgf',
                     mode='inference',
                     topk=20,
                     out_dir='./results',
@@ -76,7 +76,7 @@ def pickle_smiles(in_path, out_path):
     with open(out_path, 'wb') as f:
         pickle.dump(offsets, f)
 
-pickle_smiles('./randomizedsmiles.tsv', './randomizedsmiles.id')
+pickle_smiles('./smiles_dataset.tsv', './smiles_dataset.id')
 
 ```
 ### Example of statistic.json
