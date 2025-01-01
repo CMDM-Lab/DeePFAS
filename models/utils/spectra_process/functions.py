@@ -201,7 +201,7 @@ def batch_smiles_collate_fn(batch):
         [torch.tensor(c_idx) for _, c_idx in tensors],
     )
 
-def batch_spec_collate_fn(batch, resolution=0):
+def batch_spec_collate_fn(batch, resolution=1):
 
     precursor_mz = [data[1][0] for data in batch]
     m_z = [data[3][:, 0] for data in batch]
@@ -670,6 +670,7 @@ def cal_diff(mass, pepmass, adduct):
 
 def cal_mw(pepmass, adduct):
     pattern = r"([+-][A-Za-z0-9]+|[+-]\di)"
+    mult = 1
     for i, a in enumerate(adduct):
         if a in ['-', '+']:
             try:
@@ -684,21 +685,21 @@ def cal_mw(pepmass, adduct):
     for c in components:
         sign = 1 if c[0] == '+' else -1
         res = c[1:]
-        if 'i' in c:
-            tmp += sign * int(res[0]) * 1.00784
-        else:
-            try:
-                formula = Formula(res)
-                t_mass = formula.mass
-            except:
-                pattern = r"(\d+)([A-Z][a-z]?)"
-                formula = re.findall(pattern, res)
-                formula = [f'{f[1]}{f[0]}' for f in formula]
-                formula = ''.join(formula)
-                formula = Formula(formula)
-                t_mass = formula.mass
-            tmp += sign * t_mass
-    return pepmass - tmp
+        # if 'i' in c:
+        #     tmp += sign * int(res[0]) * 1.00784
+        # else:
+        try:
+            formula = Formula(res)
+            t_mass = formula.mass
+        except:
+            pattern = r"(\d+)([A-Z][a-z]?)"
+            formula = re.findall(pattern, res)
+            formula = [f'{f[1]}{f[0]}' for f in formula]
+            formula = ''.join(formula)
+            formula = Formula(formula)
+            t_mass = formula.mass
+        tmp += sign * t_mass
+    return (pepmass - tmp) / mult
 
 def gen_mol_mgf(files, out_f):
     mol_map = {}

@@ -250,14 +250,13 @@ class AttentionConv2D(nn.Module):
         return (src != self.src_pad_idx).unsqueeze(1).unsqueeze(2)
 
     def forward(self, m_z, intensity):
-
-        src = torch.tensor(batch_add_pad(m_z, self.max_len, self.src_pad_idx), device=self.device)
+        pad_len = min(max([len(mz) for mz in m_z]), self.max_len)
+        src = torch.tensor(batch_add_pad(m_z, pad_len, self.src_pad_idx), device=self.device)
         src_mask = self.mask_src_mask(src).to(self.device)
-        intensity = torch.tensor(batch_add_pad(intensity, self.max_len, 0), device=self.device)
+        intensity = torch.tensor(batch_add_pad(intensity, pad_len, 0), device=self.device)
         x = self.dropout1(self.token_emb(src))
         for layer in self.layers:
             x = layer(x, src_mask, intensity)
-
         x = x.unsqueeze(1)
         conv_results = [self.conv_and_pool(x, conv) for conv in self.convs]
         x = torch.cat(conv_results, 1)

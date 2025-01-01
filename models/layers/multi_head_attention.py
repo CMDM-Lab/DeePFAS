@@ -14,7 +14,7 @@ class MultiHeadAttention(nn.Module):
         super(MultiHeadAttention, self).__init__()
         self.n_head = n_head
         self.attention = ScaleDotProductAttention()
-        self.pos_emb = IntensityRotaryEncoding(in_dim // (n_head << 1), use_xpos=True)
+        self.pos_emb = IntensityRotaryEncoding(in_dim // (n_head << 1), use_xpos=True, cache_if_possible=False)
         self.w_q = nn.Linear(in_dim, in_dim)
         self.w_k = nn.Linear(in_dim, in_dim)
         self.w_v = nn.Linear(in_dim, in_dim)
