@@ -158,6 +158,8 @@ def inference_spec_collate_fn(spec,
     spec_list.sort(key=lambda x: x[1], reverse=True)
     if len(spec_list) > max_num_peaks:
         spec_list = spec_list[:max_num_peaks]
+    spec_list = np.array(spec_list)
+    spec_list[:, 1] /= max(spec_list[:, 1])
     # elif len(spec_list) < min_num_peaks:
     #     print(spec)
     #     print(spec_list)
