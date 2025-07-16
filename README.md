@@ -27,6 +27,8 @@ pip install -r requirements.txt
 ```shell
 
 cd DeePFAS
+mkdir ae/ae_saved
+mkdir DeePFAS/deepfas_saved
 ./download_models.sh
 
 ```
@@ -36,6 +38,7 @@ cd DeePFAS
 ```shell
 
 cd DeePFAS
+mkdir dataset
 ./download_wwtp3.sh
 
 ```
@@ -45,6 +48,7 @@ cd DeePFAS
 ```shell
 
 cd DeePFAS
+mkdir dataset
 ./download_std_150.sh
 
 ```
@@ -57,6 +61,7 @@ The NIST PFAS Database (version 1.1) is a public database and can be downloaded 
 ```shell
 
 cd DeePFAS
+mkdir dataset
 ./download_nist_pfas.sh
 
 ```
