@@ -119,8 +119,7 @@ mgf.write(data, 'spectra.mgf', file_mode='w', write_charges=False)
 ```
 
 ### Generate customized molecule library
-Molecule library and its chemical embedding are stored as `.hdf5` format in order to save storage space
-Overwrite path of molecule file to `dataset_path` in `gen_latent_space_config.json`
+Molecule library and its chemical embedding are stored as `.hdf5` format in order to save storage space. Overwrite path of molecule file to `dataset_path` in `gen_latent_space_config.json`
 
 ``` shell
 

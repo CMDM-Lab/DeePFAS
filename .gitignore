@@ -1,0 +1,8 @@
+__pycache__/
+lightning_logs/
+DeePFAS.egg-info/
+*.pyc
+poetry.lock
+.DS_Store
+*.pt
+*results

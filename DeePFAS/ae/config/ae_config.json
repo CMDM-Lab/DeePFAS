@@ -1,0 +1,73 @@
+{
+    "embedding": {
+        "e_dim": 39,
+        "z_dim": 512,
+        "enc_voc_size": 39,
+        "dec_voc_size": 39
+    },
+    "encoder": {
+        "in_dim": 39,
+        "hid_dim": 512,
+        "n_layers": 3,
+        "drop_prob": 0.0,
+        "bidir": true
+    },
+    "decoder": {
+        "in_dim": 512,
+        "hid_dim": 512,
+        "n_layers": 3,
+        "drop_prob": 0
+    },
+    "hparams": {
+        "max_len": 130,
+        "batch_size": 1280,
+        "val_frac": 0.1,
+        "train_num_workers": 6,
+        "val_num_workers": 6,
+        "drop_last": false,
+        "lr": 3e-4,
+        "factor": 0.9,
+        "adam_eps": 5e-9,
+        "patience": 1,
+        "min_lr": 1e-5,
+        "max_epoch": 50,
+        "clip": 50,
+        "seed": 57,
+        "weight_decay": 5e-4,
+        "regression_loss_weight": 1.0,
+        "use_properties": true,
+        "use_contrastive_learning": false,
+        "randomized": true,
+        "ignore_vae": true,
+        "log_every_n_steps": 50000,
+        "precision": 32,
+        "num_devices": 1,
+        "val_check_interval": 1.0, 
+        "accumulate_grad_batches": 64,
+        "num_sanity_val_steps": 0,
+        "save_top_k": 1,
+        "save_last": false,
+        "save_every_n_train_steps": 0,
+        "save_every_n_train_epochs": 1,
+        "num_decoys": 32,
+        "verbose": true,
+        "instances_buffer_size": 1200,
+        "buffer_max_batch": 3,
+        "debug": true
+    },
+    "path": {
+        "model_dir": "./ae/ae_saved",
+        "save_model_path": "./ae/ae_saved/best_model.pt",
+        "dataset_path": "../DATASET/mol_database.hdf5",
+        "decoys_dataset_pth": "../DATASET/form_to_smiles.pkl"
+    },
+    "prop": {
+        "hidden_dim": 512,
+        "prop_dim": 20,
+        "fp_dim": 4096
+    },
+    "logger": {
+        "project_name": "DeePFAS_mol_extractor",
+        "wandb_entity_name": "wanghengzzz"
+    }
+}
