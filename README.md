@@ -14,7 +14,7 @@ git clone git@github.com:CMDM-Lab/DeePFAS.git
 
 conda create -n DeePFAS python=3.10.0 --yes
 conda activate DeePFAS
-cd DeePFAS
+cd DeePFAS/DeePFAS
 
 pip install -r requirements.txt
 
@@ -26,7 +26,7 @@ pip install -r requirements.txt
 
 ```shell
 
-cd DeePFAS
+cd DeePFAS/DeePFAS
 mkdir ae/ae_saved
 mkdir DeePFAS/deepfas_saved
 ./download_models.sh
@@ -37,7 +37,7 @@ mkdir DeePFAS/deepfas_saved
 
 ```shell
 
-cd DeePFAS
+cd DeePFAS/DeePFAS
 mkdir dataset
 ./download_wwtp3.sh
 
@@ -47,7 +47,7 @@ mkdir dataset
 
 ```shell
 
-cd DeePFAS
+cd DeePFAS/DeePFAS
 mkdir dataset
 ./download_std_150.sh
 
@@ -60,7 +60,7 @@ The NIST PFAS Database (version 1.1) is a public database and can be downloaded 
 
 ```shell
 
-cd DeePFAS
+cd DeePFAS/DeePFAS
 mkdir dataset
 ./download_nist_pfas.sh
 
@@ -78,7 +78,7 @@ Please convert MS/MS spectra as `.mgf` format and execute script `test_deepfas.s
 
 ```shell
 
-cd DeePFAS
+cd DeePFAS/DeePFAS
 ./test_deepfas.sh
 
 ```
@@ -128,7 +128,7 @@ Molecule library and its chemical embedding are stored as `.hdf5` format in orde
 
 ``` shell
 
-cd DeePFAS
+cd DeePFAS/DeePFAS
 python3 ae/gen_latent_space.py \
  --deepfas_config_pth DeePFAS/config/deepfas_config.json \
  --ae_config_pth ae/config/gen_latent_space_config.json \
