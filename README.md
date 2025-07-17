@@ -34,7 +34,7 @@ mkdir DeePFAS/deepfas_saved
 ```
 
 #### Download the mass spectra of a wastewater sample (WWTP3)
-
+The wastewaster sample was provided by Yi-Ju Chen. Please see the article [Emerging Perfluorobutane Sulfonamido Derivatives as a New Trend of Surfactants Used in the Semiconductor Industry](https://pubs.acs.org/doi/10.1021/acs.est.3c04435) by for details.
 ```shell
 
 cd DeePFAS/DeePFAS
@@ -44,7 +44,7 @@ mkdir dataset
 ```
 
 #### Download the mass spectra of PFAS standard mixtures (std_150)
-
+The PFAS standard mixtures was provided by Yi-Ju Chen. Please see the article [Emerging Perfluorobutane Sulfonamido Derivatives as a New Trend of Surfactants Used in the Semiconductor Industry](https://pubs.acs.org/doi/10.1021/acs.est.3c04435) for details
 ```shell
 
 cd DeePFAS/DeePFAS
