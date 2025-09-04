@@ -132,8 +132,30 @@ cd DeePFAS/DeePFAS
 python3 ae/gen_latent_space.py \
  --deepfas_config_pth DeePFAS/config/deepfas_config.json \
  --ae_config_pth ae/config/gen_latent_space_config.json \
- --latent_space_out_pth customized_mol_database.hdf5 \
+ --latent_space_out_pth your_file_name.hdf5 \
  --chunk_size 100000 \
  --compression_level 9
+
+```
+
+### A simple GUI interface
+
+1. **Download Models**  
+   Make sure the required models are downloaded before proceeding.
+
+2. **Load MS2 Spectra**  
+   Click **Load MS2 Spectra (.mgf)** to import the input MS2 spectra in `.mgf` format.
+
+3. **Load Molecule Database**  
+   Click **Load Molecule Database (.hdf5)** to load the reference molecular database.  
+   You can use the sample database provided at: `mol_dataset/mol_database.hdf5`
+
+4. **Set Output Directory**  
+Click **Load Output Results Dir** to choose the folder where results will be saved.
+
+``` shell
+
+cd DeePFAS/DeePFAS
+./run_DeePFAS.sh
 
 ```
