@@ -1,7 +1,7 @@
 import tkinter as tk
 import os
 from tkinter import ttk, Button, IntVar, BooleanVar, Radiobutton, filedialog, font
-
+from PIL import ImageTk, Image
 import subprocess
 from pyteomics import mgf
 import h5py
@@ -106,6 +106,7 @@ def button_run_deepfas():
 
 
 topk = 20
+cur_dir = os.path.dirname(os.path.abspath(__file__))
 
 root = tk.Tk(className='DeePFAS')
 root.title('DeePFAS')
@@ -172,7 +173,13 @@ eval_mode.place(x=240, y=178)
 mode_var.set(True)
 
 execute_button = Button(text="Run", bg='#E7ECF7', command=button_run_deepfas)
-execute_button.place(x=250, y=300, height = 60, width = 150)
+execute_button.place(x=130, y=270, height = 60, width = 150) # x, y = 2
 execute_button['font'] = myfont
+
+image = Image.open(os.path.join(cur_dir, 'DeePFAS_logo.png')).resize((214, 209), Image.LANCZOS)
+photo = ImageTk.PhotoImage(image)
+labelLogo = ttk.Label(root, image=photo, relief='groove')
+labelLogo.place(x = 340, y = 160)
+# labelLogo.configure(font=('Courier', 18, 'bold'))
 
 root.mainloop()
