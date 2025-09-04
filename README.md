@@ -144,14 +144,14 @@ python3 ae/gen_latent_space.py \
    Make sure the required models are downloaded before proceeding.
 
 2. **Load MS2 Spectra**  
-   Click **Load MS2 Spectra (.mgf)** to import the input MS2 spectra in `.mgf` format.
+   Click `Load MS2 Spectra (.mgf)` to import the input MS2 spectra in `.mgf` format.
 
 3. **Load Molecule Database**  
-   Click **Load Molecule Database (.hdf5)** to load the reference molecular database.  
+   Click `Load Molecule Database (.hdf5)` to load the reference molecular database.  
    You can use the sample database provided at: `mol_dataset/mol_database.hdf5`
 
 4. **Set Output Directory**  
-Click **Load Output Results Dir** to choose the folder where results will be saved.
+Click `Load Output Results Dir` to choose the folder where results will be saved.
 
 ``` shell
 
