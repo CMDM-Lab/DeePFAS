@@ -158,6 +158,9 @@ Click `Load Output Results Dir` to choose the folder where results will be saved
 ``` shell
 
 cd DeePFAS/DeePFAS
+# (Linux / MacOS)
 ./run_DeePFAS.sh
+# (Windows)
+run_DeePFAS.bat
 
 ```
