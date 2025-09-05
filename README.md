@@ -25,8 +25,9 @@ pip install -r requirements.txt
 #### Download pretrained models
 
 **Option 1:** Download the models automatically by running the following shell script.
+
 **Option 2:** Manually download the model parameters from `https://zenodo.org/records/15083140`
-- Copy ae_best_model.pt into the `ae/ae_saved` directory.
+- Copy `ae_best_model.pt` into the `ae/ae_saved` directory.
 - Copy the DeePFAS model files into the `DeePFAS/deepfas_saved` directory.
 - The default model is set to `deepfas_r2_over_best_model.pt`. You can change the model by modifying the `save_model_path` parameter in `DeePFAS/config/deepfas_config.json`.
 
