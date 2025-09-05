@@ -24,11 +24,15 @@ pip install -r requirements.txt
 
 #### Download pretrained models
 
+**Option 1:** Download the models automatically by running the following shell script.
+**Option 2:** Manually download the model parameters from `https://zenodo.org/records/15083140`
+- Copy ae_best_model.pt into the `ae/ae_saved` directory.
+- Copy the DeePFAS model files into the `DeePFAS/deepfas_saved` directory.
+- The default model is set to `deepfas_r2_over_best_model.pt`. You can change the model by modifying the `save_model_path` parameter in `DeePFAS/config/deepfas_config.json`.
+
 ```shell
 
 cd DeePFAS/DeePFAS
-mkdir ae/ae_saved
-mkdir DeePFAS/deepfas_saved
 ./download_models.sh
 
 ```
@@ -38,7 +42,6 @@ The wastewaster sample was provided by Yi-Ju Chen. Please see the article [Emerg
 ```shell
 
 cd DeePFAS/DeePFAS
-mkdir dataset
 ./download_wwtp3.sh
 
 ```
@@ -48,7 +51,6 @@ The PFAS standard mixtures was provided by Yi-Ju Chen. Please see the article [E
 ```shell
 
 cd DeePFAS/DeePFAS
-mkdir dataset
 ./download_std_150.sh
 
 ```
@@ -61,7 +63,6 @@ The NIST PFAS Database (version 1.1) is a public database and can be downloaded 
 ```shell
 
 cd DeePFAS/DeePFAS
-mkdir dataset
 ./download_nist_pfas.sh
 
 ```
@@ -141,7 +142,7 @@ python3 ae/gen_latent_space.py \
 ### A simple GUI interface
 
 1. **Download Models**  
-   Make sure the required models are downloaded before proceeding.
+   Make sure you have downloaded the required models mentioned in the first section.
 
 2. **Load MS2 Spectra**  
    Click `Load MS2 Spectra (.mgf)` to import the input MS2 spectra in `.mgf` format.
