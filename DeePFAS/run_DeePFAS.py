@@ -176,7 +176,7 @@ execute_button = Button(text="Run", bg='#E7ECF7', command=button_run_deepfas)
 execute_button.place(x=130, y=270, height = 60, width = 150) # x, y = 2
 execute_button['font'] = myfont
 
-image = Image.open(os.path.join(cur_dir, 'DeePFAS_logo.png')).resize((214, 209), Image.LANCZOS)
+image = Image.open(os.path.join(cur_dir, 'DeePFAS_logo_4.png')).resize((217, 191), Image.LANCZOS) # 214, 209
 photo = ImageTk.PhotoImage(image)
 labelLogo = ttk.Label(root, image=photo, relief='groove')
 labelLogo.place(x = 340, y = 160)
