@@ -142,6 +142,8 @@ python3 ae/gen_latent_space.py \
 
 ### A simple GUI interface
 
+![alt text](https://github.com/CMDM-Lab/DeePFAS/tree/main/DeePFAS/DeePFAS_gui.png?raw=true)
+
 1. **Download Models**  
    Make sure you have downloaded the required models mentioned in the first section.
 
